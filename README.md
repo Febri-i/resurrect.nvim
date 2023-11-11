@@ -1,4 +1,4 @@
-[resurrect with workpaces.nvim](https://i.imgur.com/bTKtA7v.gif)
+![resurrect with workpaces.nvim](https://i.imgur.com/bTKtA7v.gif)
 
 # Resurrect your neovim session
 
