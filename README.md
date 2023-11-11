@@ -36,7 +36,7 @@ vim.g.RessurectAutoWipeout = true
 ```
 
 # Usage
-
+Combine it whatever you want the api is simple.
 ```lua
 require("ressurect").save("session_name_here")
 require("ressurect").load("session_name_here")
