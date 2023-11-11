@@ -28,15 +28,25 @@ require("resurrect").setup({
     auto_wipeout = true -- automatically do :bufdo bwipeout before loading session
 })
 ```
+
 Or
+
 ```lua
 vim.g.RessurectSessionDir = "<session dir, default = ~/.Vimsession/>"
 vim.g.RessurectAutoWipeout = true
 ```
 
 # Usage
+
 Combine it whatever you want the api is simple.
+
 ```lua
 require("ressurect").save("session_name_here")
 require("ressurect").load("session_name_here")
 ```
+
+# Todo
+
+Im still wrestling with neovim api
+
+- [ ] Add split window support.
