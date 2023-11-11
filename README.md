@@ -12,11 +12,10 @@ mksession sucks. It saves everything, including Nvim-Tree too.
 
 Just install it with whatever your plugin manager is, example for lazy.nvim
 
-```
+```lua
 {
     'Febri-i/resurrect.nvim'
 }
-
 ```
 
 # Config
