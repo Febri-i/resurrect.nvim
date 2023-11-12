@@ -34,8 +34,8 @@ require("resurrect").setup({
 Or
 
 ```lua
-vim.g.RessurectSessionDir = "<session dir, default = ~/.Vimsession/>"
-vim.g.RessurectAutoWipeout = true
+vim.g.ResurrectSessionDir = "<session dir, default = ~/.Vimsession/>"
+vim.g.ResurrectAutoWipeout = true
 ```
 
 # Usage
@@ -43,8 +43,8 @@ vim.g.RessurectAutoWipeout = true
 Combine it whatever you want the api is simple.
 
 ```lua
-require("ressurect").save("session_name_here")
-require("ressurect").load("session_name_here")
+require("resurrect").save("session_name_here")
+require("resurrect").load("session_name_here")
 ```
 
 # Todo
