@@ -1,4 +1,6 @@
-![resurrect with workpaces.nvim](https://i.imgur.com/bTKtA7v.gif)
+| ![resurrect with workpaces.nvim](https://i.imgur.com/XKNCCWw.gif) |
+|:--:|
+| *my tailwind language server hogging the cpu usage* |
 
 # Resurrect your neovim session
 
@@ -50,5 +52,5 @@ require("ressurect").load("session_name_here")
 Im still wrestling with neovim api
 
 - [x] Add split window support.
-- [ ] Add multiple tabs support (do anyone actually use tabs?)
+- [ ] Add multiple tabs support. (do anyone actually use tabs?)
 - [ ] Add code documentation.
