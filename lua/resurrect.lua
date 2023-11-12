@@ -27,7 +27,7 @@ return {
 
 		local session_dir_stat = lstat(vim.g.RessurectSessionDir)
 		if not session_dir_stat then
-			vim.fn.mkdir(vim.fn.expand(vim.g.RessurectSessionDir))
+			vim.fn.mkdir(vim.fn.expand(vim.g.RessurectSessionDir), "p")
 		end
 	end,
 	save = function(name)
@@ -76,7 +76,7 @@ return {
 		if not lstat(session_path) then
 			return
 		end
-		local paths = readfile(session_path)
+		local paths = readfile(session_path .. "/" .. "files.fsession")
 
 		for _, path in ipairs(paths) do
 			if lstat(path) then
