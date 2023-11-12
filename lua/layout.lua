@@ -157,6 +157,9 @@ local function create_layout(path)
 				tbl.width = vim.api.nvim_win_get_width(layout[2])
 				tbl.path = buf_path
 				table.insert(files, buf_path)
+				if tbl.height >= vim.go.lines - 3 then
+					tbl.height = 9999
+				end
 			end
 		else
 			local childrens = layout[2]
