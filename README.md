@@ -49,5 +49,6 @@ require("ressurect").load("session_name_here")
 
 Im still wrestling with neovim api
 
-- [ ] Add split window support.
+- [x] Add split window support.
+- [ ] Add multiple tabs support (do anyone actually use tabs?)
 - [ ] Add code documentation.
