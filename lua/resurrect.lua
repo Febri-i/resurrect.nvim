@@ -53,7 +53,9 @@ return {
 			return
 		end
 		local session_path = getSessionDir(name)
-		local bufs = vim.api.nvim_list_bufs()
+		local bufs = vim.tbl_filter(function(buf_id)
+			return vim.api.nvim_buf_is_loaded(buf_id)
+		end, vim.api.nvim_list_bufs())
 		local bufs_stat = vim.tbl_map(function(buf_id)
 			local path = vim.api.nvim_buf_get_name(buf_id)
 			local resultlstat = nil
