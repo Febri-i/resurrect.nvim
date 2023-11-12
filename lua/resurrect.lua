@@ -1,33 +1,16 @@
+local layout = require("layout")
+
+local util = require("util")
+local realpath = util.realpath
+local writefile = util.writefile
+local readfile = util.readfile
+local lstat = util.lstat
+
 vim.g.RessurectSessionDir = "~/.vimsession/"
 vim.g.RessurectSAutoWipeout = true
 
 local function getSessionDir(name)
-	return vim.fn.expand(vim.g.RessurectSessionDir .. "/" .. name .. ".fsession")
-end
-
-local function lstat(path)
-	if not #path then
-		return nil
-	end
-	return vim.loop.fs_lstat(vim.fn.expand(path))
-end
-
-local function realpath(path)
-	if not #path then
-		return nil
-	end
-	return vim.loop.fs_realpath(vim.fn.expand(path))
-end
-
-local function readfile(path)
-	if not #path then
-		return nil
-	end
-	return vim.fn.readfile(vim.fn.expand(path)) or {}
-end
-
-local function writefile(data, path)
-	vim.fn.writefile(data, vim.fn.expand(path))
+	return vim.fn.expand(vim.g.RessurectSessionDir .. "/" .. name)
 end
 
 return {
@@ -77,7 +60,9 @@ return {
 		local mapped = vim.tbl_map(function(buf_stat)
 			return buf_stat.name
 		end, valid_buf_path)
-		writefile(mapped, session_path)
+		vim.fn.mkdir(session_path, "p")
+		writefile(mapped, session_path .. "/" .. "files.fsession")
+		layout.save(session_path .. "/" .. "layout.json")
 	end,
 	load = function(name)
 		vim.print(name)
@@ -92,7 +77,7 @@ return {
 			return
 		end
 		local paths = readfile(session_path)
-		--
+
 		for _, path in ipairs(paths) do
 			if lstat(path) then
 				vim.schedule(function()
@@ -100,5 +85,7 @@ return {
 				end)
 			end
 		end
+
+		layout.load(session_path .. "/" .. "layout.json")
 	end,
 }
